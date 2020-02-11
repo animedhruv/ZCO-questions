@@ -1,0 +1,44 @@
+def game(*a):
+  x=0
+  y=0
+  for i in range (len(a)-1):
+    if a[i]==3:
+      if inputs[x]>=1 and y==0:
+        inputs[x]=inputs[x]-1
+        y=y+1
+      else :
+        break
+    elif a[i]==1:
+      if x>=1:
+        x=x-1
+      else:
+        break
+    elif a[i]==2:
+      if x<stacks:
+        x=x+1
+      else:
+        break
+    elif a[i]==4:
+      if inputs[x]<max and y==1:
+        inputs[x]=inputs[x]+1
+        y=y-1
+      else:
+        break
+    else:
+      pass
+  for i in range(stacks):
+    print(inputs[i])
+try:
+  stacks, max = map(int, input("Enter a two value: ").split() )
+except ValueError as e:
+      
+      print(e)
+      print("hello you are wrong, enter  only 2 values  \n")
+      stacks, max = map(int, input("Enter a two value: ").split() )
+
+inputs =list(map(int, input('Enter numbers: ').split()))
+orders = [int(x) for x in  input("Enter multiple value: ").split()]
+
+game(*orders)
+
+
